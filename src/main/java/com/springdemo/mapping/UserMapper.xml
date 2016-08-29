@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springdemo.dao.UserMapper">
+
+	<resultMap id="userMap" type="com.springdemo.entity.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="addUser" parameterType="com.springdemo.entity.User">
+		INSERT INTO users(name, age) values (#{name}, #{age})
+	</insert>
+
+	<select id="getUserById" parameterType="int" resultMap="userMap">
+		SELECT * FROM users WHERE id = #{id}
+	</select>
+
+	<update id="updateUser" parameterType="com.springdemo.entity.User">
+		UPDATE users SET name = #{name}, age = #{age} WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteUserById" parameterType="int">
+		DELETE FROM users WHERE id = #{id}
+	</delete>
+	
+	<select id="getAllUser" resultMap="userMap">
+		SELECT * FROM users
+	</select>
+</mapper>
