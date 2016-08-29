@@ -26,6 +26,10 @@
 		DELETE FROM users WHERE id = #{id}
 	</delete>
 	
+	<delete id="deleteUserByName" parameterType="String">
+		DELETE FROM users WHERE name = #{name}
+	</delete>
+	
 	<select id="getAllUser" resultMap="userMap">
 		SELECT * FROM users
 	</select>
