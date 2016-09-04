@@ -9,11 +9,13 @@ public interface UserMapper {
 
     User getUserById(int id);
 
+    User getUserByName(String username);
+
     int updateUser(User user);
 
     int deleteUserById(int id);
 
-    int deleteUserByName(String name);
+    int deleteUserByName(String username);
 
     List<User> getAllUser();
 

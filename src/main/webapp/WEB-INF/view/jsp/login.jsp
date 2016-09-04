@@ -7,7 +7,7 @@
 <title>登录</title>
 </head>
 <body>
-	<form action="index" method="POST">
+	<form action="login" method="POST">
 		用户名：<input type="text" name="username"> 
 		<br />
 		密码：<input type="password" name="password">

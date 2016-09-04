@@ -6,20 +6,24 @@
 
 	<resultMap id="userMap" type="com.springdemo.entity.User">
 		<id column="id" property="id" jdbcType="INTEGER" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
-		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<insert id="addUser" parameterType="com.springdemo.entity.User">
-		INSERT INTO users(name, age) values (#{name}, #{age})
+		INSERT INTO users(username, password) values (#{username}, #{password})
 	</insert>
 
 	<select id="getUserById" parameterType="int" resultMap="userMap">
 		SELECT * FROM users WHERE id = #{id}
 	</select>
+	
+	<select id="getUserByName" parameterType="String" resultMap="userMap">
+		SELECT * FROM users WHERE username = #{username}
+	</select>
 
 	<update id="updateUser" parameterType="com.springdemo.entity.User">
-		UPDATE users SET name = #{name}, age = #{age} WHERE id = #{id}
+		UPDATE users SET username = #{username}, password = #{password} WHERE id = #{id}
 	</update>
 	
 	<delete id="deleteUserById" parameterType="int">
@@ -27,7 +31,7 @@
 	</delete>
 	
 	<delete id="deleteUserByName" parameterType="String">
-		DELETE FROM users WHERE name = #{name}
+		DELETE FROM users WHERE username = #{username}
 	</delete>
 	
 	<select id="getAllUser" resultMap="userMap">

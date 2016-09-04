@@ -39,9 +39,9 @@ $("#search").click(function(){
 		dataType: "json",
 	}).then(function(results) {
 		$("#userListTable").empty();
-		var html = "<tr><td>ID</td><td>姓名</td><td>年龄</td></tr>";
+		var html = "<tr><td>ID</td><td>用户名</td><td>密码</td></tr>";
 		for (var i = 0; i < results.length; i++) {
-			html += "<tr><td>" + results[i].id + "</td><td>" + results[i].name + "</td><td>" + results[i].age + "</td></tr>"
+			html += "<tr><td>" + results[i].id + "</td><td>" + results[i].username + "</td><td>" + results[i].password + "</td></tr>"
 		}
 		$("#userListTable").append(html);
 	});
